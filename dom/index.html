@@ -5,6 +5,17 @@
         body {
             background-color: rgb(200, 200, 200);
         }
+
+        #colorList li {
+            width: 200px;
+            height: 30px;
+        }
+
+        #colorList li button {
+            float: right;
+            height: 30px;
+        }
+
     </style>
 </head>
 
@@ -19,6 +30,14 @@
     <button id="btnSearch">Search</button>
 
     <p id="searchOutput"></p>
+
+
+    <h2>Adding/Removing</h2>
+    <p>Here are all my favourite colors</p>
+    <ul id="colorList"></ul>
+    <label for="txtNewColor">New color: </label>
+    <input id="txtNewColor" type="text">
+    <button onclick="addColor()" id="btnNewColor">Add</button>
 
 
     <script src='./dom.js' type="text/javascript">
