@@ -1,7 +1,7 @@
 console.log('Starting DOM manipulation');
 
-var btn = document.querySelector('#btnChangeColor');
-console.log(btn);
+var btnColor = document.querySelector('#btnChangeColor');
+console.log(btnColor);
 
 function rand(n) {
     return Math.floor(Math.random()*(n +1));
@@ -15,6 +15,29 @@ function changeBodyColor() {
     document.body.style.backgroundColor = rndClr;
 }
 
-btn.onclick = changeBodyColor;
+btnColor.onclick = changeBodyColor;
 
-btn.addEventListener('mouseover', changeBodyColor);
+btnColor.addEventListener('mouseover', changeBodyColor);
+
+/******** SEARCH ********/
+
+var outputSearch = document.querySelector('#searchOutput');
+var inputSearch = document.querySelector('#txtSearch');
+var btnSearch = document.querySelector('#btnSearch');
+
+var contacts = ['Chris', 'Sarah', 'Bill', 'Mary'];
+
+btnSearch.onclick = function() {
+    var searchName = inputSearch.value;
+    console.log(searchName);
+ 
+    var position = contacts.indexOf(searchName);
+    console.log(position);
+    if (position >= 0) {
+        outputSearch.textContent = searchName + 
+            '\'s position is ' + position;
+    } else {
+        outputSearch.textContent = 'Could not find ' +
+            searchName;
+    }
+ } 
