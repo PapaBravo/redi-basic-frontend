@@ -15,7 +15,6 @@
             float: right;
             height: 30px;
         }
-
     </style>
 </head>
 
@@ -31,15 +30,20 @@
 
     <p id="searchOutput"></p>
 
-
     <h2>Adding/Removing</h2>
     <p>Here are all my favourite colors</p>
     <ul id="colorList"></ul>
-    <label for="selectNewColor">New color: </label>
-    <select id="selectNewColor"></select>
+    
+    <label for="txtNewColor">New color: </label>
+    <!-- <input id="txtNewColor" type="text"> -->
+
+    <select id="selectNewColor">
+        <option>red</option>
+        <option>blue</option>
+        <option>green</option>
+    </select>
 
     <button onclick="addColor()" id="btnNewColor">Add</button>
-
 
     <script src='./dom.js' type="text/javascript">
     </script>

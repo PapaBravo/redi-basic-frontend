@@ -43,43 +43,34 @@ btnSearch.onclick = function () {
 }
 
 /****** Adding to the DOM *****/
-function buildNewColorElement(color) {
+function createColorElement(color) {
     var colorElement = document.createElement('li');
     colorElement.textContent = color;
     colorElement.style.backgroundColor = color;
 
     var btnRemove = document.createElement('button');
-    btnRemove.textContent = 'Remove';
-    btnRemove.onclick = () => colorElement.remove();
+    btnRemove.textContent = 'Remove ' + color;
+    btnRemove.onclick = function () {
+        colorElement.remove();
+    }
     colorElement.appendChild(btnRemove);
     return colorElement;
 }
 
-function getSelectValue(selectId) {
-    var options = document.querySelectorAll('#' + selectId + ' option');
-    for (var i = 0; i < options.length; i++) {
+function getSelectColor(selectId) {
+    var options = document.querySelectorAll(selectId + ' option');
+    console.log(options);
+    for(var i = 0; i < options.length; i++) {
         if (options[i].selected) {
             return options[i].value;
-        }
+        } 
     }
 }
 
-function addColorOptions(selectId, colors) {
-    var select = document.querySelector('#' + selectId);
-    for (var i = 0; i < colors.length; i++) {
-        var option = document.createElement('option');
-        option.textContent = colors[i];
-        select.appendChild(option);
-    }
-}
-
-addColorOptions('selectnewColor', ['red', 'blue', 'green']);
-
-function addColor(color) {    
-    var newColor = getSelectValue('selectNewColor');
-
-    var colorList = document.querySelector("#colorList");
-    // in addColor
-    var newEl = buildNewColorElement(newColor);
+function addColor() {
+    // var newColor = document.querySelector('#txtNewColor').value;
+    var newColor = getSelectColor('#selectNewColor');
+    var colorList = document.querySelector('#colorList');
+    var newEl = createColorElement(newColor);
     colorList.appendChild(newEl);
 }
