@@ -55,10 +55,28 @@ function buildNewColorElement(color) {
     return colorElement;
 }
 
-function addColor(color) {
-    var newColor = document
-        .querySelector('#txtNewColor')
-        .value;
+function getSelectValue(selectId) {
+    var options = document.querySelectorAll('#' + selectId + ' option');
+    for (var i = 0; i < options.length; i++) {
+        if (options[i].selected) {
+            return options[i].value;
+        }
+    }
+}
+
+function addColorOptions(selectId, colors) {
+    var select = document.querySelector('#' + selectId);
+    for (var i = 0; i < colors.length; i++) {
+        var option = document.createElement('option');
+        option.textContent = colors[i];
+        select.appendChild(option);
+    }
+}
+
+addColorOptions('selectnewColor', ['red', 'blue', 'green']);
+
+function addColor(color) {    
+    var newColor = getSelectValue('selectNewColor');
 
     var colorList = document.querySelector("#colorList");
     // in addColor
