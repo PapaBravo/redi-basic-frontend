@@ -1,0 +1,52 @@
+<html>
+
+<head>
+    <style>
+        #bookList {
+            margin-top: 10px;
+        }
+
+        div.book {
+            width: 300px;
+            height: 100px;
+            border: 2px darkgray solid;
+            float: left;
+            margin: 0 0 5px 5px;
+            padding: 2px;
+        }
+
+        div.book span.title,
+        div.book span.author {
+            display: block;
+            width: 100%;
+        }
+
+        div.book span.title {
+            font-weight: bold;
+        }
+
+        div.book span.title::before,
+        div.book span.title::after {
+            content: "\""
+        }
+    </style>
+</head>
+
+<body>
+    <h1>REDI - Basic Web Development</h1>
+    <h2>The Book API</h2>
+    <label for="searchTitle">Title</label>
+    <input id="searchTitle" />
+
+    <label for="searchAuthor">Author</label>
+    <input id="searchAuthor" />
+
+    <button onclick="searchBooks()">Search</button>
+
+    <div id="bookList"></div>
+
+    <script src='./api.js' type="text/javascript">
+    </script>
+</body>
+
+</html>
