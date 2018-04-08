@@ -14,10 +14,14 @@ function setBooks(rawBooks) {
     }
 }
 
+function handleError(err) {
+    alert('Something was wrong: ' + err.message);
+}
+
 function fetchBooks(url) {
     fetch(url)
         .then(res => {
-            if (!res.ok) {
+            if ( !res.ok ) {
                 throw new Error('Problem fetching books.');
             }
             return res.json();
@@ -28,9 +32,7 @@ function fetchBooks(url) {
             }
             setBooks(res.items);
         })
-        .catch(err => {
-            alert('Something was wrong: ' + err.message);
-        });
+        .catch(handleError);
 }
 
 function searchBooks() {
